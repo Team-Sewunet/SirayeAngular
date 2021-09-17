@@ -1,0 +1,55 @@
+.container {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    height:100vh;
+  }
+  .login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+  }
+  .login-card {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+    width:50%;
+    background-color: #fff;
+  }
+  .login-button {
+    margin-top:20px;
+  }
+  .login-image-container{
+    width:80%;  
+    height:100vh;
+    background-color: #040d21;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+
+  .toggle-button{
+    margin-top:20px;
+  }
+
+  .button-container{
+      justify-content: space-between;
+      display: flex;
+      gap: 30px;
+  }
+
+  input{
+      margin:10px 0px;
+      width: 100%;
+  }
+  
+  .error{
+      color:red;
+  }
+  
+  .ant-form-item-control-input {
+    width:100%;
+}
+  

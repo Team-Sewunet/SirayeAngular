@@ -1,0 +1,25 @@
+<nz-table #basicTable [nzData]="listOfData">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Actions</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td>{{ data.id }}</td>
+        <td>{{ data.firstName }}</td>
+        <td>{{ data.lastName }}</td>
+        <td>{{ data.email }}</td>
+        <td>
+          <button nzDanger nz-button nzType="dashed" (click)="showDeleteConfirm()">Delete</button>
+          <nz-divider nzType="vertical"></nz-divider>
+          <button nz-button nzType="dashed">Edit</button>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>

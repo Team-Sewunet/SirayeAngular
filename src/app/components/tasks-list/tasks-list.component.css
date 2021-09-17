@@ -1,0 +1,117 @@
+.title_container {
+  padding-bottom: 0px;
+  display: flex;
+  text-align: center;
+  margin-bottom: 16px;
+  padding:10px;
+  outline: 1px solid rgb(105, 94, 94);
+  background-color: rgb(253, 253, 253);
+}
+.expired{
+    color: rgb(143, 12, 12);
+}
+.title {
+  margin: 0;
+}
+h3{
+    margin:0;
+    padding:0;
+}
+.count {
+  text-align: center;
+  margin-right: 10px;
+}
+.count-pending {
+  background-color: #f5bc76;
+}
+.count-working {
+  background-color: #107152;
+  color: white;
+}
+
+.count-done {
+  background-color: #065697;
+  color: white;
+}
+
+.count-blocked {
+  background-color: #9c1818;
+  color: white;
+}
+.title-pending {
+  color: #f5bc76;
+}
+.title-working {
+  color: #107152;
+}
+
+.title-done {
+  color: #065697;
+}
+
+.title-blocked {
+  color: #9c1818;
+}
+
+.item-lister {
+  margin-bottom: 16px;
+  overflow:auto;
+}
+
+.card {
+  border: 1px solid #E5F2F5;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 2px 10px 0 rgba(0, 0, 0, 0.19);
+  cursor: grab;
+  /* border-radius: 5px; */
+  background-color: #fff;
+  padding: 16px;
+}
+
+.card-title-container {
+  display: flex;
+  font-size: 14px;
+  gap: 16px;
+}
+
+.card-title {
+  line-height: 1;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  gap: 16px;
+}
+.card-body {
+  line-height: 1;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.actions {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+}
+.actions-continer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.actions > div:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.due-date {
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: capitalize;
+  text-align: center;
+  margin-top: 12px;
+}
+
+.items-container{
+    height: 700px;
+    overflow: auto;
+}

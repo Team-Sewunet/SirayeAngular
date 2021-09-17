@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+@import "~ng-zorro-antd/ng-zorro-antd.min.css";
+
+
+.ant-card-body{
+    padding: 16px !important;
+    padding-bottom: 0px !important;
+}
+
+.ant-modal-content{
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar {
+    width: 1px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgb(33, 122, 118); 
+    border-radius: 2px;
+  }

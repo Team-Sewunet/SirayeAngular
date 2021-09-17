@@ -1,0 +1,65 @@
+<div class="container">
+    <app-login-image class="login-image-container"></app-login-image>
+    <div class="login-container">
+        <div class="login-card" *ngIf="page === 'Signup'; else signupform">
+            <app-logo></app-logo>
+            <form [formGroup]="loginForm" (submit)="login()">
+                <nz-form-control nzErrorTip="The input is not valid E-mail!">
+                    <input formControlName="email" nz-input placeholder="Email" type="email" />
+                </nz-form-control>
+                <nz-form-control nzErrorTip="The input is not valid password!">
+                    <input formControlName="password" nz-input placeholder="Password" type="password" />
+                </nz-form-control>
+                <button [disabled]="!loginForm.valid" type="submit" class="login-button" nz-button
+                    nzType="primary">Login</button>
+            </form>
+
+            <div class="button-container">
+                <button (click)="togglePage()" class="toggle-button" nz-button nzType="dashed">Forgot
+                    Password</button>
+                <button (click)="togglePage()" class="toggle-button" nz-button nzType="dashed">{{page}}</button>
+            </div>
+        </div>
+        <ng-template #signupform>
+            <div class="login-card">
+                <app-logo></app-logo>
+                <form [formGroup]="profileForm" (submit)="signup()">
+                    <nz-form-control nzErrorTip="The input is not valid!">
+                        <input formControlName="firstName" nz-input placeholder="First Name" type="text" />
+                    </nz-form-control>
+                    <nz-form-control nzErrorTip="The input is not valid!">
+                        <input formControlName="lastName" nz-input placeholder="Last Name" type="text" />
+                    </nz-form-control>
+                    <nz-form-control nzErrorTip="The input is not valid!">
+                        <input formControlName="email" nz-input placeholder="Email" type="email" />
+                    </nz-form-control>
+                    <nz-form-control nzErrorTip="The input is not valid!">
+                        <input formControlName="userName" nz-input placeholder="User Name" type="text" />
+                    </nz-form-control>
+                    <nz-form-control nzErrorTip="The input is not valid!">
+                        <input formControlName="password" nz-input placeholder="Password" type="password" />
+                    </nz-form-control>
+                    <nz-form-control nzErrorTip="The input is not valid!">
+                        <input formControlName="confirmPassword" nz-input placeholder="Confirm Password"
+                            type="password" />
+                    </nz-form-control>
+                    <button [disabled]="!profileForm.valid" type="submit" class="login-button" nz-button
+                        nzType="primary">Signup</button>
+                </form>
+                <div class="button-container">
+                    <button (click)="togglePage()" class="toggle-button" nz-button nzType="dashed">Forgot
+                        Password</button>
+                    <button (click)="togglePage()" class="toggle-button" nz-button nzType="dashed">{{page}}</button>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+
+    <nz-modal nzClassName="modal-view" nzWidth="auto" [nzCentered]="true" [nzFooter]="null" [nzClosable]="false" [(nzVisible)]="loading">
+        <ng-container *nzModalContent>
+          <div class="loading-state">
+          <nz-spin nzSimple [nzSize]="'large'"></nz-spin>
+        </div>
+        </ng-container>
+      </nz-modal>
+</div>

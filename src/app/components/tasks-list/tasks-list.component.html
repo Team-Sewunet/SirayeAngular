@@ -1,0 +1,55 @@
+<div>
+  <div class="title_container">
+    <div>
+      <nz-avatar
+        *ngIf="!loading; else loadingView"
+        [class]="'count count-' + classVal"
+        [nzText]="contents.length + ''"
+      ></nz-avatar>
+      <ng-template #loadingView>
+        <nz-spin nzSimple [nzSize]="'large'"></nz-spin>
+      </ng-template>
+    </div>
+    <h3 [class]="'title title-' + classVal">{{ title }}</h3>
+  </div>
+  <div class="items-container" *ngIf="contents.length > 0; else emptyData">
+    
+    <div *ngFor="let content of contents; index as i" class="item-lister">
+      <div
+        [id]="content.id"
+        class="card"
+        draggable="true"
+        (dragstart)="drag($event, content, i)"
+      >
+        <div class="card-title-container">
+          <div class="card-title">
+            {{ content.title }}
+          </div>
+        </div>
+        <div class="card-body">
+          {{ content.description }}
+        </div>
+        <div class="actions-continer">
+          <div
+            class="due-date"
+            [class]="date >= content.dueDate ? 'expired' : ''"
+          >
+            <span *ngIf="date >= content.dueDate; else notExpired"
+              >Expired
+            </span>
+            <ng-template #notExpired>
+              <span>Expires </span>
+            </ng-template>
+            <time>{{ content.dueDate | amTimeAgo }}</time>
+          </div>
+
+          <div class="actions"></div>
+        </div>
+      </div>
+    </div>
+   
+  </div>
+  <ng-template #emptyData>
+    <nz-empty></nz-empty>
+  </ng-template>
+</div>

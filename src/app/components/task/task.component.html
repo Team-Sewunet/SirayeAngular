@@ -1,0 +1,28 @@
+
+   <div class="flex-container">
+    <app-tasks-list (drop)="drop($event, 'pending')" (dragover)="allowDrop($event)" classVal="pending"  title="Pending Tasks" [contents]="pending" [loading]="loading" class="flex-item flex-item-1">
+      
+    </app-tasks-list>
+    <app-tasks-list (drop)="drop($event, 'working')" (dragover)="allowDrop($event)" classVal="working"  title="Working Tasks" [contents]="working" [loading]="loading" class="flex-item flex-item-1">
+      
+    </app-tasks-list>
+    <app-tasks-list (drop)="drop($event, 'done')" (dragover)="allowDrop($event)" classVal="done"  title="Done Tasks" [contents]="done" [loading]="loading" class="flex-item flex-item-1">
+      
+    </app-tasks-list>
+    <app-tasks-list (drop)="drop($event, 'blocked')" (dragover)="allowDrop($event)" classVal="blocked"  title="Blocked Tasks" [contents]="blocked" [loading]="loading" class="flex-item flex-item-1">
+      
+    </app-tasks-list>
+  </div>
+
+  <nz-modal nzClassName="modal-view" nzWidth="auto" [nzCentered]="true" [nzFooter]="null" [nzClosable]="false" [(nzVisible)]="update_loading">
+    <ng-container *nzModalContent>
+      <div class="loading-state">
+      <nz-spin nzSimple [nzSize]="'large'"></nz-spin>
+    </div>
+    </ng-container>
+  </nz-modal>
+    
+
+ 
+
+
