@@ -120,7 +120,7 @@ export class TaskComponent implements OnInit {
     try {
       this.update_loading = true;
       const response = await axios.put(
-        `${environment.apiURL}/Task`+task.id,
+        `${environment.apiURL}/Task/`+task.id,
         task,
         { headers }
       );

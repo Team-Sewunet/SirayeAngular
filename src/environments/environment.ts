@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  apiURL: 'https://localhost:44342/api/v1',
-  accountApi: 'https://localhost:44342/api',
+  apiURL: 'https://localhost:9001/api/v1',
+  accountApi: 'https://localhost:9001/api',
   apiKEY: 'C1CF4B7DC4C4175B6618DE4F55CA4'
 };
 

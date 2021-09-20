@@ -1,10 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { NzModalService } from 'ng-zorro-antd/modal';
+import axios from 'axios';
+import { NzMessageService } from 'ng-zorro-antd/message';
+import { environment } from '../../../environments/environment';
+
 interface Person {
-  id: number;
+  id: string;
   firstName: string;
   lastName: string;
   email: string;
+  userName:string;
 }
 
 @Component({
@@ -13,48 +18,16 @@ interface Person {
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
+  loading = false;
   listOfData: Person[] = [
-    {
-      id: 1,
-      firstName: 'John',
-      lastName: 'Brown',
-      email: 'example@gmail.com'
-    },
-    {
-      id: 2,
-      firstName: 'John',
-      lastName: 'Brown',
-      email: 'example@gmail.com'
-    },
-    {
-      id: 3,
-      firstName: 'John',
-      lastName: 'Brown',
-      email: 'example@gmail.com'
-    },
-    {
-      id: 4,
-      firstName: 'John',
-      lastName: 'Brown',
-      email: 'example@gmail.com'
-    },
-    {
-      id: 5,
-      firstName: 'John',
-      lastName: 'Brown',
-      email: 'example@gmail.com'
-    },
-    {
-      id: 6,
-      firstName: 'John',
-      lastName: 'Brown',
-      email: 'example@gmail.com'
-    },
+    
    
   ];
   constructor(private modal: NzModalService) {}
 
-  ngOnInit(): void {
+  async ngOnInit() {
+
+    this.listOfData = await this.getUser();
   }
   showDeleteConfirm(): void {
     this.modal.confirm({
@@ -68,5 +41,19 @@ export class UsersComponent implements OnInit {
       nzOnCancel: () => console.log('Cancel')
     });
   }
+
+  async getUser(){
+    
+    try {
+      this.loading = true;
+      const response = await axios.get(`${environment.accountApi}/Account/all-users`);
+      this.loading = false;
+      console.log(response.data);
+      return response.data;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  
 
 }
